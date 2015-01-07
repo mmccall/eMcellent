@@ -3,12 +3,6 @@
 var expect = require('chai').expect;
 var parser = require('../lib/parse.js');
 
-
-
-
-
-
-
 describe('Parse Labels >', function () {
 
     it('Negative Space', function (done) {

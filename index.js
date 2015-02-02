@@ -14,6 +14,12 @@ function parseLine (inputString) {
 	return returnObject;
 }
 
-this.parseLine = parseLine;
+function parseRoutine(inputString) {
 
 
+
+
+}
+
+module.exports.parseLine = parseLine;
+module.exports.parseRoutine = parseRoutine;

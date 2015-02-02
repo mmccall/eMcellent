@@ -31,15 +31,17 @@ Parses a routine of M/MUMPS code, returning an array of JSON representations mar
 
 Parsed lines will be returned in the below format; parseRoutine returns an array of these objects.
 
-```{
+```
+{
 	lineLabel: String,
 	lineNumber: Number,
 	lineComment: String,
 	lineIndentation: Number,
     lineRoutines: [{
-      mRoutine: String,
-      mArguments: String,
-      mPostConditional: String,
+        mRoutine: String,
+        mArguments: String,
+        mPostConditional: String,
     }]
-   }```
+}
+```
 

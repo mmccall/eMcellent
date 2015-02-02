@@ -1,6 +1,9 @@
 eMcellent-parse
 =========
 
+[![Build Status](https://travis-ci.org/mmccall/eMcellent-parse.svg)](https://travis-ci.org/mmccall/eMcellent-parse)
+
+
 A most excellent M/MUMPS parsing library; eMcellent-parse takes input M/MUMPS code and transforms it into JSON-based representations of the code.  This can be used in translation and/or markup to make the source code more readily interpretable.
 
 ###Getting Started

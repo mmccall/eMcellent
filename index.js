@@ -4,14 +4,17 @@ var parser = require('./lib/parse.js');
 
 function parseLine (inputString) {
 
-	var returnObject = {};
 	var tmpObject = {};
 
+	//Run through each parsing step sequentially.
 	tmpObject = parser.extractLabel(inputString, tmpObject);
-	tmpObject = parser.extractComment(tmpObject.lineExpression, tmpObject)
+	tmpObject = parser.extractComment(tmpObject.lineExpression, tmpObject);
+	tmpObject = parser.extractIndentation(tmpObject.lineExpression, tmpObject);
+	tmpObject = parser.extractRoutines(tmpObject.lineExpression, tmpObject);
 	
-	returnObject = tmpObject;
-	return returnObject;
+	//Line Expression is no longer needed.
+	delete tmpObject.lineExpression;
+	return tmpObject;
 }
 
 function parseRoutine(inputString) {

@@ -422,3 +422,41 @@ describe('Extract Routines and Arguments >', function () {
     });
 
 });
+
+
+describe('Extract Post-Conditionals >', function () {
+
+    it('Basic Test', function (done) {
+        var testLine = 'HELLO:TOTHE WORLD';
+        var result = parser.extractRoutines(testLine, {});
+        expect(result.lineRoutines).to.exist;
+        expect(result.lineRoutines.length).to.equal(1);
+        expect(result.lineRoutines[0].mRoutine).to.equal('HELLO');
+        expect(result.lineRoutines[0].mArguments).to.equal('WORLD');
+        expect(result.lineRoutines[0].mPostConditional).to.equal('TOTHE');
+        done();
+    });
+
+    it('Empty Post-Conditional', function (done) {
+        var testLine = 'HELLO: WORLD';
+        var result = parser.extractRoutines(testLine, {});
+        expect(result.lineRoutines).to.exist;
+        expect(result.lineRoutines.length).to.equal(1);
+        expect(result.lineRoutines[0].mRoutine).to.equal('HELLO');
+        expect(result.lineRoutines[0].mArguments).to.equal('WORLD');
+        expect(result.lineRoutines[0].mPostConditional).to.equal('');
+        done();
+    });
+
+    it('Single Post-Conditional', function (done) {
+        var testLine = ' HELLO:WORLD';
+        var result = parser.extractRoutines(testLine, {});
+        expect(result.lineRoutines).to.exist;
+        expect(result.lineRoutines.length).to.equal(1);
+        expect(result.lineRoutines[0].mRoutine).to.equal('HELLO');
+        expect(result.lineRoutines[0].mArguments).to.not.exist;
+        expect(result.lineRoutines[0].mPostConditional).to.equal('WORLD');
+        done();
+    });
+
+});

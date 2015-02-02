@@ -13,7 +13,7 @@ The library has two entry functions; note that both functions are synchronous.
 
 ####parseLine
 
-```parseLine(inputString)```
+`parseLine(inputString)`
 
 Parses a single line of M/MUMPS code into the JSON representation.
 
@@ -21,7 +21,7 @@ Parses a single line of M/MUMPS code into the JSON representation.
 
 ####parseRoutine
 
-```parseRoutine(inputString)```
+`parseRoutine(inputString)`
 
 Parses a routine of M/MUMPS code, returning an array of JSON representations marked up with line numbers.
 

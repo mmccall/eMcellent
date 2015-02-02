@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mmccall/eMcellent.git"
+    "url": "https://github.com/mmccall/eMcellent-parse.git"
   },
   "keywords": [
     "M",
@@ -15,9 +15,9 @@
   "author": "Matthew McCall",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/mmccall/eMcellent/issues"
+    "url": "https://github.com/mmccall/eMcellent-parse/issues"
   },
-  "homepage": "https://github.com/mmccall/eMcellent",
+  "homepage": "https://github.com/mmccall/eMcellent-parse",
   "dependencies": {},
   "devDependencies": {
     "mocha": "~2.0.1",

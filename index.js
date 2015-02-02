@@ -19,8 +19,20 @@ function parseLine (inputString) {
 
 function parseRoutine(inputString) {
 
+	//Strip out carriage returns.
+	//TODO:  Investigate escape quote checking, if CR/LF can be contained in text block.
+	inputString = inputString.replace("\r", "");
+	var inputArray = inputString.split('\n');
 
+	var returnArray = [];
 
+	for (var i=0;i<inputArray.length;i++) {
+		var tmpLineObject = parseLine(inputArray[i]);
+		tmpLineObject.lineNumber = i+1;
+		returnArray.push(tmpLineObject);
+	}
+
+	return returnArray;
 
 }
 

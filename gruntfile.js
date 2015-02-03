@@ -1,12 +1,17 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jsbeautifier');
-    grunt.registerTask('default', ['jshint', 'mochaTest']);
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    grunt.registerTask('default', ['jshint', 'mochaTest', 'jsbeautifier']);
+    grunt.registerTask('build:browser', ['jshint', 'mochaTest', 'browserify', 'uglify']);
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         jshint: {
             files: ['./lib/*.js', 'index.js', 'gruntFile.js', './test/**/*.js'],
             options: {
@@ -46,6 +51,24 @@ module.exports = function(grunt) {
                 options: {
                     mode: 'VERIFY_ONLY',
                     config: '.jsbeautifyrc'
+                }
+            }
+        },
+        browserify: {
+            dist: {
+                files: {
+                    'dist/emcellent.min.js': ['index.js']
+                }
+            }
+        },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */' + '\n'
+            },
+            my_target: {
+                files: {
+                    'dist/emcellent.min.js': ['dist/emcellent.min.js']
                 }
             }
         },

@@ -7,7 +7,11 @@ A most excellent M/MUMPS parsing library; eMcellent-parse takes input M/MUMPS co
 
 ###Getting Started
 
-The code is currently designed to only run in Node.js; it has no external dependencies outside of those which are available through Node.  However, to test, run `npm install` to download the `Grunt` Build tool and related dependencies.
+The code is built to be run in either Node.js or the browser; it uses native Javascript parsing and has no intrinsic dependencies outside of those used during builds.
+
+To use in Node.js, the package is available via `npm`.  To use locally, you will only need to install dependencies using `npm install`.  To test, the default `grunt` task will execute all test cases.
+
+To use in the browser, install dependencies with `npm install`, and run `grunt build:browser`.  Browserify will convert the package into a Commonjs format and minify it.
 
 ###Functions
 

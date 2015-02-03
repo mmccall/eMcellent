@@ -10,7 +10,7 @@ var fileContentArray;
 
 describe('Parse 10 Lines of XINDEX.m >', function () {
 
-    before(function(done) {
+    before(function (done) {
         var fileContents = fs.readFileSync(filePath, 'utf8');
         fileContentArray = fileContents.split('\n');
         done();

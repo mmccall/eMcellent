@@ -3,9 +3,6 @@
 var expect = require('chai').expect;
 var parser = require('../../lib/parse.js');
 
-
-
-
 describe('Split Routines and Arguments >', function () {
 
     it('Basic Test', function (done) {
@@ -237,7 +234,6 @@ describe('Extract Routines and Arguments >', function () {
     });
 
 });
-
 
 describe('Extract Post-Conditionals >', function () {
 

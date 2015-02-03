@@ -1,6 +1,6 @@
 {
   "name": "emcellent-parse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A most excellent M/MUMPS parsing library.",
   "main": "index.js",
   "repository": {
@@ -10,7 +10,9 @@
   "keywords": [
     "M",
     "MUMPS",
-    "VistA"
+    "VistA",
+    "GT.M",
+    "Cache"
   ],
   "author": "Matthew McCall",
   "license": "Apache 2.0",

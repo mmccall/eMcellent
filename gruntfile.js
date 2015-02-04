@@ -58,7 +58,12 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'dist/emcellent-parse.min.js': ['index.js']
-                }
+                },
+                options: {
+                    browserifyOptions: {
+                        standalone: 'mParse'
+                    }
+                },
             }
         },
         uglify: {

@@ -15,7 +15,7 @@ To use in the browser, install dependencies with `npm install`, and run `grunt b
 
 ### Functions
 
-The library has two entry functions; note that both functions are synchronous.
+The library has two entry functions; note that both functions are synchronous.  In the browser, these can be accessed as elements of the mParse object (ex. `mParse.parseLine();` ).
 
 #### parseLine
 

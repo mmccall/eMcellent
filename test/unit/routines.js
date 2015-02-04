@@ -270,4 +270,15 @@ describe('Extract Post-Conditionals >', function () {
         done();
     });
 
+    it('Multi Semi-Colon Post-Conditional', function (done) {
+        var testLine = ' D:ARG[\":\"&(POST\']\"\")';
+        var result = parser.extractRoutines(testLine, {});
+        expect(result.lineRoutines).to.exist;
+        expect(result.lineRoutines.length).to.equal(1);
+        expect(result.lineRoutines[0].mRoutine).to.equal('D');
+        expect(result.lineRoutines[0].mArguments).to.not.exist;
+        expect(result.lineRoutines[0].mPostConditional).to.equal('ARG[\":\"&(POST\']\"\")');
+        done();
+    });
+
 });

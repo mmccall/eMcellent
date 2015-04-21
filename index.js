@@ -17,13 +17,12 @@ function parseLine(inputString) {
     return tmpObject;
 }
 
-function parseRoutine(inputString) {
+function parse(inputString) {
 
     //Strip out carriage returns.
     //TODO:  Investigate escape quote checking, if CR/LF can be contained in text block.
     inputString = inputString.replace("\r", "");
     var inputArray = inputString.split('\n');
-
     var returnArray = [];
 
     for (var i = 0; i < inputArray.length; i++) {
@@ -31,10 +30,7 @@ function parseRoutine(inputString) {
         tmpLineObject.lineNumber = i + 1;
         returnArray.push(tmpLineObject);
     }
-
     return returnArray;
-
 }
 
-module.exports.parseLine = parseLine;
-module.exports.parseRoutine = parseRoutine;
+module.exports.parse = parse;

@@ -57,7 +57,7 @@ function render(inputObject) {
         if (i === (inputObject.length - 1)) {
             response = response + tmpLine;
         } else {
-            response = response + tmpLine + "\r\n";
+            response = response + tmpLine + "\n";
         }
     }
 

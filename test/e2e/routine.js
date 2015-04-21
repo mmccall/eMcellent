@@ -29,18 +29,22 @@ describe('Parse Entire XINDEX.m Routine >', function () {
 describe('Render Entire XINDEX.m Routine >', function () {
 
     it('Diff rendered file and source', function (done) {
-
         var results = eMcellent.render(parsedContents);
-        fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.m2'), results);
-        fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.json'), JSON.stringify(parsedContents, null, 10));
-        var diffResults = jsdiff.diffChars(fileContents, results, function(err, diffRes) {
+        //fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.m2'), results);
+        //fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.json'), JSON.stringify(parsedContents, null, 10));
+        jsdiff.diffLines(fileContents, results, function(err, diffRes) {
             if (err) {
                 done(err);
             } else {
-                console.log(diffRes);
+                expect(diffRes.length).to.equal(1);
+                for (var i in diffRes) {
+                    expect(diffRes[i].count).to.not.exist();
+                    expect(diffRes[i].added).to.not.exist();
+                    expect(diffRes[i].removed).to.not.exist();
+                }
+                done();
             }
         });
     });
-
 
 });

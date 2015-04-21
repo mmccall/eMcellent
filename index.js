@@ -1,12 +1,13 @@
 "use strict";
 
 var parser = require('./lib/parse.js');
+var renderer = require('./lib/render.js');
 
-function parseLine(inputString) {
+function parseLine (inputString) {
 
     var tmpObject = {};
 
-    //Run through each parsing step sequentially.
+    //Parsing must be performed sequentially.
     tmpObject = parser.extractLabel(inputString, tmpObject);
     tmpObject = parser.extractComment(tmpObject.lineExpression, tmpObject);
     tmpObject = parser.extractIndentation(tmpObject.lineExpression, tmpObject);
@@ -17,7 +18,21 @@ function parseLine(inputString) {
     return tmpObject;
 }
 
-function parse(inputString) {
+function renderLine (inputObject) {
+
+    var renderLine = "";
+
+    //Rendering must be performed sequentially.
+    renderLine = renderer.appendLabel(inputObject, renderLine);
+    renderLine = renderer.appendComment(inputObject, renderLine);
+    renderLine = renderer.appendIndentation(inputObject, renderLine);
+    renderLine = renderer.appendRoutines(inputObject, renderLine);
+
+    return renderLine;
+
+}
+
+function parse (inputString) {
 
     //Strip out carriage returns.
     //TODO:  Investigate escape quote checking, if CR/LF can be contained in text block.
@@ -33,4 +48,19 @@ function parse(inputString) {
     return returnArray;
 }
 
+function render(inputObject) {
+
+    var response = "";
+
+    for (var i = 0; i < inputObject.length; i++) {
+        var tmpLine = renderLine(inputObject[i]);
+        response = response + tmpLine + "\n";
+    }
+
+    return response;
+
+}
+
+
 module.exports.parse = parse;
+module.exports.render = render;

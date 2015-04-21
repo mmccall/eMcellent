@@ -24,9 +24,9 @@ function renderLine (inputObject) {
 
     //Rendering must be performed sequentially.
     renderLine = renderer.appendLabel(inputObject, renderLine);
-    renderLine = renderer.appendComment(inputObject, renderLine);
     renderLine = renderer.appendIndentation(inputObject, renderLine);
     renderLine = renderer.appendRoutines(inputObject, renderLine);
+    renderLine = renderer.appendComment(inputObject, renderLine);
 
     return renderLine;
 
@@ -54,7 +54,11 @@ function render(inputObject) {
 
     for (var i = 0; i < inputObject.length; i++) {
         var tmpLine = renderLine(inputObject[i]);
-        response = response + tmpLine + "\n";
+        if (i === (inputObject.length - 1)) {
+            response = response + tmpLine;
+        } else {
+            response = response + tmpLine + "\r\n";
+        }
     }
 
     return response;

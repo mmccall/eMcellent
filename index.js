@@ -3,7 +3,7 @@
 var parser = require('./lib/parse.js');
 var renderer = require('./lib/render.js');
 
-function parseLine (inputString) {
+function parseLine(inputString) {
 
     var tmpObject = {};
 
@@ -18,21 +18,21 @@ function parseLine (inputString) {
     return tmpObject;
 }
 
-function renderLine (inputObject) {
+function renderLine(inputObject) {
 
-    var renderLine = "";
+    var tmpLine = "";
 
     //Rendering must be performed sequentially.
-    renderLine = renderer.appendLabel(inputObject, renderLine);
-    renderLine = renderer.appendIndentation(inputObject, renderLine);
-    renderLine = renderer.appendRoutines(inputObject, renderLine);
-    renderLine = renderer.appendComment(inputObject, renderLine);
+    tmpLine = renderer.appendLabel(inputObject, tmpLine);
+    tmpLine = renderer.appendIndentation(inputObject, tmpLine);
+    tmpLine = renderer.appendRoutines(inputObject, tmpLine);
+    tmpLine = renderer.appendComment(inputObject, tmpLine);
 
-    return renderLine;
+    return tmpLine;
 
 }
 
-function parse (inputString) {
+function parse(inputString) {
 
     //Strip out carriage returns.
     //TODO:  Investigate escape quote checking, if CR/LF can be contained in text block.
@@ -64,7 +64,6 @@ function render(inputObject) {
     return response;
 
 }
-
 
 module.exports.parse = parse;
 module.exports.render = render;

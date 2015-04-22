@@ -32,7 +32,7 @@ describe('Render Entire XINDEX.m Routine >', function () {
         var results = eMcellent.render(parsedContents);
         //fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.m2'), results);
         //fs.writeFileSync(path.join(__dirname, '../sample/XINDEX.json'), JSON.stringify(parsedContents, null, 10));
-        jsdiff.diffLines(fileContents, results, function(err, diffRes) {
+        jsdiff.diffLines(fileContents, results, function (err, diffRes) {
             if (err) {
                 done(err);
             } else {

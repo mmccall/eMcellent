@@ -36,6 +36,7 @@ describe('Render Entire XINDEX.m Routine >', function () {
             if (err) {
                 done(err);
             } else {
+                //console.log(diffRes);
                 expect(diffRes.length).to.equal(1);
                 for (var i in diffRes) {
                     expect(diffRes[i].count).to.not.exist();

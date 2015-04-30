@@ -1,5 +1,21 @@
-#Bulk File Tester
+#Load eMcellent Tester
 
-Given the extension to and modification of the M/MUMPS language over time, bulk execution of files can ensure that 100% fidelity is maintained by this parser.  This loader allows you to specify a directory, which will be recursively scanned and each file evaluated.
+Parsing adhoc M/MUMPS files by the standard is effective, though the standard is open to some interpretation.  To ensure the parser is properly functioning, we can load test it with as many files as possible and ensure that the output is identical to the input.
 
-This is primarily used against the OSEHRA issued VISTA instance of .M files.
+The load tester uses `mocha` to bulk load as many files as possible from a given directory, and attempts to parse/recompile them.
+
+To begin, first edit the `config.json` file:
+
+`
+config.source: The directory to be parsed.  This directory will be recursively walked and all files subdirectories loaded.
+`
+
+`config.output: If a test fails, debugging content is dumped to this directory, stamped with the name of the file which failed`
+
+`config.throttle: A limit to the number of files to parse.  If you have a large directory of files, incrementally stepping up the throttle is a good way to debug.  Leave it as zero for no throttle.`
+
+Check out [OSEHRA's VistA-M](https://github.com/OSEHRA/VistA-M) codebase if you need some source files, this project was created in an attempt to successfully ingest and reproduce all of these files.
+
+To run the test, execute the following command (you must have mocha installed):
+
+`mocha load.js -R spec -t 300000`

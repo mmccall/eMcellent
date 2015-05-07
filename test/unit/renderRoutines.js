@@ -86,6 +86,18 @@ describe('Render Routines >', function () {
         done();
     });
 
+    it('Empty Routine +Arguments +PostConditional', function (done) {
+        testObject.lineRoutines = [{
+            mRoutine: "",
+            mArguments: "HELLO WORLD",
+            mPostConditional: "HOWRU"
+        }];
+        var result = render.appendRoutines(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal(' :HOWRU HELLO WORLD');
+        done();
+    });
+
     it('Leading Space', function (done) {
         testObject.lineRoutines = [{
             mRoutine: "W"

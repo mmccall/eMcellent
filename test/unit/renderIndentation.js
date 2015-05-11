@@ -40,7 +40,7 @@ describe('Render Indentation >', function () {
 
     it('One Test Indentation', function (done) {
         testObject.lineIndentation = 1;
-        testObject.lineIndentationSpace = true;
+        testObject.lineIndentationSpace = ' ';
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
         expect(result).to.equal(' . ');
@@ -49,7 +49,7 @@ describe('Render Indentation >', function () {
 
     it('Two Test Indentation', function (done) {
         testObject.lineIndentation = 2;
-        testObject.lineIndentationSpace = true;
+        testObject.lineIndentationSpace = ' ';
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
         expect(result).to.equal(' . . ');
@@ -58,7 +58,7 @@ describe('Render Indentation >', function () {
 
     it('One Test Indentation False', function (done) {
         testObject.lineIndentation = 1;
-        testObject.lineIndentationSpace = false;
+        testObject.lineIndentationSpace = '';
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
         expect(result).to.equal(' .');
@@ -67,10 +67,19 @@ describe('Render Indentation >', function () {
 
     it('Two Test Indentation False', function (done) {
         testObject.lineIndentation = 2;
-        testObject.lineIndentationSpace = false;
+        testObject.lineIndentationSpace = '';
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
         expect(result).to.equal(' ..');
+        done();
+    });
+
+    it('Indentation Comment Test', function (done) {
+        testObject.lineIndentation = 1;
+        testObject.lineIndentationSpace = '   ';
+        var result = render.appendIndentation(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal(' .   ');
         done();
     });
 

@@ -110,3 +110,15 @@ describe('Parse 10 Lines of XINDEX.m >', function () {
     });
 
 });
+
+describe('Patch Tests', function () {
+
+    it('PRCAATR - Label/Indentation Issue', function (done) {
+        var input = 'RD . R !!,\"Press return to continue: \",X:DTIME S:\'$T DTOUT=1 S OUT=1';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+});

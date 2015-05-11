@@ -51,10 +51,17 @@ function parse(inputString) {
 function render(inputObject) {
 
     var response = "";
+    var parseArray = [];
 
-    for (var i = 0; i < inputObject.length; i++) {
-        var tmpLine = renderLine(inputObject[i]);
-        if (i === (inputObject.length - 1)) {
+    if (!Array.isArray(inputObject)) {
+        parseArray.push(inputObject);
+    } else {
+        parseArray = inputObject;
+    }
+
+    for (var i = 0; i < parseArray.length; i++) {
+        var tmpLine = renderLine(parseArray[i]);
+        if (i === (parseArray.length - 1)) {
             response = response + tmpLine;
         } else {
             response = response + tmpLine + "\n";

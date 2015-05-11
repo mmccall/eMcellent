@@ -102,4 +102,31 @@ describe('Render Indentation >', function () {
         done();
     });
 
+    it('Empty Lead Spacing Test', function (done) {
+        testObject.lineIndentationLead = " ";
+        testObject.lineIndentationArray = ["\t\t", " "];
+        var result = render.appendIndentation(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal(' .\t\t. ');
+        done();
+    });
+
+    it('Single Lead Spacing Test', function (done) {
+        testObject.lineIndentationLead = " ";
+        testObject.lineIndentationArray = ["\t\t", " "];
+        var result = render.appendIndentation(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal(' .\t\t. ');
+        done();
+    });
+
+    it('Multi-Lead Spacing Test', function (done) {
+        testObject.lineIndentationLead = "   ";
+        testObject.lineIndentationArray = ["\t\t", " "];
+        var result = render.appendIndentation(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal('   .\t\t. ');
+        done();
+    });
+
 });

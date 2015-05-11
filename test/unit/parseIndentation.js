@@ -188,4 +188,19 @@ describe('Parse Indentation >', function () {
         done();
     });
 
+    it('Double Indentation with Comment', function (done) {
+        var testLine = ' ..;HELLO WORLD.';
+        var result = parser.extractIndentation(testLine, {});
+        console.log(result);
+        expect(result.lineIndentationLead).to.exist;
+        expect(result.lineIndentationLead).to.equal(" ");
+        expect(result.lineIndentationArray).to.exist;
+        expect(result.lineIndentationArray.length).to.equal(2);
+        expect(result.lineIndentationArray[0]).to.equal("");
+        expect(result.lineIndentationArray[1]).to.equal("");
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal(";HELLO WORLD.");
+        done();
+    });
+
 });

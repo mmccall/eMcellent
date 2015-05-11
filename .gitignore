@@ -29,3 +29,6 @@ node_modules
 
 # Build directory for browser
 dist
+
+# Load directory can be ignored
+test/load/output

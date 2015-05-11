@@ -73,11 +73,12 @@ describe('Split Routines and Arguments >', function () {
         var testLine = 'HELLO BIG OLD WORLD ';
         var result = parser.splitRoutinesAndArguments(testLine, {});
         expect(result).to.exist;
-        expect(result.length).to.equal(4);
+        expect(result.length).to.equal(5);
         expect(result[0]).to.equal('HELLO');
         expect(result[1]).to.equal('BIG');
         expect(result[2]).to.equal('OLD');
         expect(result[3]).to.equal('WORLD');
+        expect(result[4]).to.equal('');
         done();
     });
 
@@ -85,12 +86,13 @@ describe('Split Routines and Arguments >', function () {
         var testLine = 'HELLO BIG OLD WORLD  ';
         var result = parser.splitRoutinesAndArguments(testLine, {});
         expect(result).to.exist;
-        expect(result.length).to.equal(5);
+        expect(result.length).to.equal(6);
         expect(result[0]).to.equal('HELLO');
         expect(result[1]).to.equal('BIG');
         expect(result[2]).to.equal('OLD');
         expect(result[3]).to.equal('WORLD');
         expect(result[4]).to.equal('');
+        expect(result[5]).to.equal('');
         done();
     });
 
@@ -98,12 +100,13 @@ describe('Split Routines and Arguments >', function () {
         var testLine = 'HELLO \"BIG\" OLD WORLD  ';
         var result = parser.splitRoutinesAndArguments(testLine, {});
         expect(result).to.exist;
-        expect(result.length).to.equal(5);
+        expect(result.length).to.equal(6);
         expect(result[0]).to.equal('HELLO');
         expect(result[1]).to.equal('\"BIG\"');
         expect(result[2]).to.equal('OLD');
         expect(result[3]).to.equal('WORLD');
         expect(result[4]).to.equal('');
+        expect(result[5]).to.equal('');
         done();
     });
 
@@ -111,11 +114,12 @@ describe('Split Routines and Arguments >', function () {
         var testLine = 'HELLO \"BIG OLD\" WORLD  ';
         var result = parser.splitRoutinesAndArguments(testLine, {});
         expect(result).to.exist;
-        expect(result.length).to.equal(4);
+        expect(result.length).to.equal(5);
         expect(result[0]).to.equal('HELLO');
         expect(result[1]).to.equal('\"BIG OLD\"');
         expect(result[2]).to.equal('WORLD');
         expect(result[3]).to.equal('');
+        expect(result[4]).to.equal('');
         done();
     });
 
@@ -123,12 +127,13 @@ describe('Split Routines and Arguments >', function () {
         var testLine = 'HELLO \"BIG\" OLD \"WORLD\"  ';
         var result = parser.splitRoutinesAndArguments(testLine, {});
         expect(result).to.exist;
-        expect(result.length).to.equal(5);
+        expect(result.length).to.equal(6);
         expect(result[0]).to.equal('HELLO');
         expect(result[1]).to.equal('\"BIG\"');
         expect(result[2]).to.equal('OLD');
         expect(result[3]).to.equal('\"WORLD\"');
         expect(result[4]).to.equal('');
+        expect(result[5]).to.equal('');
         done();
     });
 
@@ -160,10 +165,12 @@ describe('Extract Routines and Arguments >', function () {
         var testLine = 'HELLO  ';
         var result = parser.extractRoutines(testLine, {});
         expect(result.lineRoutines).to.exist;
-        expect(result.lineRoutines.length).to.equal(1);
+        expect(result.lineRoutines.length).to.equal(2);
         expect(result.lineRoutines[0].mRoutine).to.equal('HELLO');
         expect(result.lineRoutines[0].mArguments).to.exist;
         expect(result.lineRoutines[0].mArguments).to.equal('');
+        expect(result.lineRoutines[1].mRoutine).to.exist;
+        expect(result.lineRoutines[1].mRoutine).to.equal('');
         done();
     });
 
@@ -189,7 +196,8 @@ describe('Extract Routines and Arguments >', function () {
         expect(result.lineRoutines[0].mArguments).to.exist;
         expect(result.lineRoutines[0].mArguments).to.equal('');
         expect(result.lineRoutines[1].mRoutine).to.equal('WORLD');
-        expect(result.lineRoutines[1].mArguments).to.not.exist;
+        expect(result.lineRoutines[1].mArguments).to.exist;
+        expect(result.lineRoutines[1].mArguments).to.equal('');
         done();
     });
 
@@ -229,7 +237,8 @@ describe('Extract Routines and Arguments >', function () {
         expect(result.lineRoutines[1].mRoutine).to.equal('TO');
         expect(result.lineRoutines[1].mArguments).to.equal('THE');
         expect(result.lineRoutines[2].mRoutine).to.equal('WORLD');
-        expect(result.lineRoutines[2].mArguments).to.not.exist;
+        expect(result.lineRoutines[2].mArguments).to.exist;
+        expect(result.lineRoutines[2].mArguments).to.equal('');
         done();
     });
 

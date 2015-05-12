@@ -15,41 +15,44 @@ To use in the browser, install dependencies with `npm install`, and run `grunt b
 
 ### Functions
 
-The library has two entry functions; note that both functions are synchronous.  In the browser, these can be accessed as elements of the mParse object (ex. `mParse.parseLine();` ).
+The library has two entry functions; note that both functions are synchronous.  In the browser, these can be accessed as elements of the mParse object (ex. `mParse.parse();` ).
 
-#### parseLine
+#### parse()
 
-`parseLine(inputString)`
+`parse(inputString)`
 
-Parses a single line of M/MUMPS code into the JSON representation.
+Parses a line or lines of M/MUMPS code into the JSON representation.
 
-`inputString` - A Line of M/MUMPS code.
+`inputString` - A Line of M/MUMPS code, or an entire routine.
 
-#### parseRoutine
+#### render()
 
-`parseRoutine(inputString)`
+`render(inputJSON)`
 
-Parses a routine of M/MUMPS code, returning an array of JSON representations marked up with line numbers.
+Renders either a single JSON representation, or an Array of JSON representations as text.
 
-`inputString` - An entire routine of M/MUMPS code, with lines separated by line feeds.
+`inputJSON` - A JSON object or array of JSON objects representing MUMPS code.
 
-### Return Format
+### JSON Format
 
-Parsed lines will be returned in the below format; parseRoutine returns an array of these objects.
+Parsed lines will be returned in the below format; this is the format for rendering objects as well.
 
 ```
 {
-	lineLabel: String,
-	lineNumber: Number,
-	lineComment: String,
-	lineIndentation: Number,
+	lineNumber: Number,  //Number of the Line.
+	lineLeadSpace: String,  //Variable Starting Spacing.
+	lineLabel: String,  //Label of the Line of Code.
+	lineComment: String,  //Comment field of the Line of Code.
+	lineIndentationArray: [String],  //Array of Indentations, represents nesting.
     lineRoutines: [{
-        mRoutine: String,
-        mArguments: String,
-        mPostConditional: String,
+        mRoutine: String,  //A MUMPS Routine.
+        mArguments: String,  //Arguments for the MUMPS Routine.
+        mPostConditional: String,  //Post Conditional Arguments for the Routine.
     }]
 }
 ```
 ### Contributions
 
 Pull requests are welcome, just be sure to include test cases.
+
+This code is licensed under Apache 2.0.

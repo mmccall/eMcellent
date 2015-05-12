@@ -130,4 +130,12 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('PRCABJV - Post Label Spacing Issue', function (done) {
+        var input = 'Q3       ..Q';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

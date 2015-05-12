@@ -133,4 +133,37 @@ describe('Render Routines >', function () {
         done();
     });
 
+    it('Test Indentation/Label Append 1', function (done) {
+        testObject.lineLabel = "TEST";
+        testObject.lineRoutines = [{
+            mRoutine: "W",
+            mArguments: "HELLO WORLD",
+            mPostConditional: "HOWRU"
+        }, {
+            mRoutine: "D",
+            mArguments: "SOMETHING"
+        }];
+        var result = render.appendRoutines(testObject, "  ");
+        expect(result).to.exist;
+        expect(result).to.equal('  W:HOWRU HELLO WORLD D SOMETHING');
+        done();
+    });
+
+    it('Test Indentation/Label Append 2', function (done) {
+        testObject.lineLabel = "TEST";
+        testObject.lineIndentationLead = "  ";
+        testObject.lineRoutines = [{
+            mRoutine: "W",
+            mArguments: "HELLO WORLD",
+            mPostConditional: "HOWRU"
+        }, {
+            mRoutine: "D",
+            mArguments: "SOMETHING"
+        }];
+        var result = render.appendRoutines(testObject, "TEST ");
+        expect(result).to.exist;
+        expect(result).to.equal('TEST W:HOWRU HELLO WORLD D SOMETHING');
+        done();
+    });
+
 });

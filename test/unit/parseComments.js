@@ -54,4 +54,34 @@ describe('Parse Comments >', function () {
         done();
     });
 
+    it('Trailing Quoted Entries', function (done) {
+        var testLine = 'I $P(LIN,3,99) ;HELLO "WORLD"';
+        var result = parser.extractComment(testLine, {});
+        expect(result.lineComment).to.exist;
+        expect(result.lineComment).to.equal('HELLO "WORLD"');
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal('I $P(LIN,3,99) ');
+        done();
+    });
+
+    it('Preceeding and Tailing Quoted Entries', function (done) {
+        var testLine = 'I $P(LIN,";",3,99) ;HELLO "WORLD"';
+        var result = parser.extractComment(testLine, {});
+        expect(result.lineComment).to.exist;
+        expect(result.lineComment).to.equal('HELLO "WORLD"');
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal('I $P(LIN,";",3,99) ');
+        done();
+    });
+
+    it('Trailing Only Single Quote Entries in Comment', function (done) {
+        var testLine = 'I $P(LIN,";",3,99) ;HELLO "WORLD';
+        var result = parser.extractComment(testLine, {});
+        expect(result.lineComment).to.exist;
+        expect(result.lineComment).to.equal('HELLO "WORLD');
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal('I $P(LIN,";",3,99) ');
+        done();
+    });
+
 });

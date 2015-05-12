@@ -110,3 +110,65 @@ describe('Parse 10 Lines of XINDEX.m >', function () {
     });
 
 });
+
+describe('Patch Tests', function () {
+
+    it('PRCAATR - Label/Indentation Issue', function (done) {
+        var input = 'RD . R !!,\"Press return to continue: \",X:DTIME S:\'$T DTOUT=1 S OUT=1';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('PRCABIL - Indentation Spacing Issue', function (done) {
+        var input = '    .S X=PRCACAT,PRCAFUND=$S(X=40:"05",X=41:"06",X=42:"07",X=43:"08",1:"10"),PRCAFUND=5287_PRCAFUND';
+        var result = eMcellent.parse(input)[0];
+        //console.log(result);
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('PRCABJV - Post Label Spacing Issue', function (done) {
+        var input = 'Q3       ..Q';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('BPSOSO1 - Quoted Semicolon Parsing Issue', function (done) {
+        var input = ' . I SEL W ! H 1 D @$P($T(LIST+SEL),";",4) ;';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('DVBAVRX2 - Post Label Trailing Space Issue', function (done) {
+        var input = 'WWDA(DVBATD,DVBAXAGE)   ';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('ICD1826P - Empty Final Line Spacing', function (done) {
+        var input = '                         ';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('RA27LIST - Semicolon dropped from comments', function (done) {
+        var input = ' ; list report-to-exam pointer problems, from ^XTMP("RA-RA27PST) :';
+        var result = eMcellent.parse(input)[0];
+        //console.log(result);
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+});

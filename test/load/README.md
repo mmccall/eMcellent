@@ -19,3 +19,5 @@ Check out [OSEHRA's VistA-M](https://github.com/OSEHRA/VistA-M) codebase if you 
 To run the test, execute the following command (you must have mocha installed):
 
 `mocha load.js -R spec -t 300000`
+
+mocha --max-old-space-size=4096 load.js -R nyan

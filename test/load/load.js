@@ -32,14 +32,7 @@ function test(inputEntry) {
 
     describe('Test File: ' + inputEntry, function () {
 
-        var tmpSRC;
-        var tmpJSON;
-        var tmpTXT;
-
-
-
         it('Compare Record', function (done) {
-
 
             fs.readFile(inputEntry, {
                 encoding: 'utf8'
@@ -47,44 +40,41 @@ function test(inputEntry) {
                 if (err) {
                     done(err);
                 } else {
-                    tmpSRC = data;
-                    tmpJSON = eMcellent.parse(tmpSRC);
-                    tmpTXT = eMcellent.render(tmpJSON);
+                    var tmpSRC = data;
+                    var tmpJSON = eMcellent.parse(tmpSRC);
+                    var tmpTXT = eMcellent.render(tmpJSON);
 
-
-            jsdiff.diffLines(tmpSRC, tmpTXT, function (err, tmpDIFF) {
-                if (err) {
-                    done(err);
-                } else {
-                    var diffErr = false;
-                    if (tmpDIFF.length !== 1) {
-                        diffErr = true;
-                    }
-                    for (var i in tmpDIFF) {
-                        if (tmpDIFF[i].count || tmpDIFF[i].added || tmpDIFF[i].removed) {
-                            diffErr = true;
-                        }
-                    }
-
-                    if (diffErr) {
-                        if (config.output) {
-                            output(inputEntry, tmpSRC, tmpTXT, tmpJSON, tmpDIFF, function (err) {
-                                done(new Error('File diffs inconsistent, check output'));
-                            });
+                    jsdiff.diffLines(tmpSRC, tmpTXT, function (err, tmpDIFF) {
+                        if (err) {
+                            done(err);
                         } else {
-                            done(new Error('File diffs inconsistent'));
+                            var diffErr = false;
+                            if (tmpDIFF.length !== 1) {
+                                diffErr = true;
+                            }
+                            for (var i in tmpDIFF) {
+                                if (tmpDIFF[i].count || tmpDIFF[i].added || tmpDIFF[i].removed) {
+                                    diffErr = true;
+                                }
+                            }
+
+                            if (diffErr) {
+                                if (config.output) {
+                                    output(inputEntry, tmpSRC, tmpTXT, tmpJSON, tmpDIFF, function (err) {
+                                        done(new Error('File diffs inconsistent, check output'));
+                                    });
+                                } else {
+                                    done(new Error('File diffs inconsistent'));
+                                }
+
+                            } else {
+                                done();
+                            }
                         }
-
-                    } else {
-                        done();
-                    }
+                    });
                 }
+
             });
-    }
-
-        });
-
-
 
         });
     });

@@ -162,4 +162,13 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('RA27LIST - Semicolon dropped from comments', function (done) {
+        var input = ' ; list report-to-exam pointer problems, from ^XTMP("RA-RA27PST) :';
+        var result = eMcellent.parse(input)[0];
+        //console.log(result);
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

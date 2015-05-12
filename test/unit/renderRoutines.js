@@ -28,7 +28,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W');
+        expect(result).to.equal('W');
         done();
     });
 
@@ -49,7 +49,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W HELLO WORLD');
+        expect(result).to.equal('W HELLO WORLD');
         done();
     });
 
@@ -60,7 +60,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W:HOWRU');
+        expect(result).to.equal('W:HOWRU');
         done();
     });
 
@@ -82,7 +82,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W:HOWRU HELLO WORLD');
+        expect(result).to.equal('W:HOWRU HELLO WORLD');
         done();
     });
 
@@ -94,17 +94,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' :HOWRU HELLO WORLD');
-        done();
-    });
-
-    it('Leading Space', function (done) {
-        testObject.lineRoutines = [{
-            mRoutine: "W"
-        }];
-        var result = render.appendRoutines(testObject, " ");
-        expect(result).to.exist;
-        expect(result).to.equal(' W');
+        expect(result).to.equal(':HOWRU HELLO WORLD');
         done();
     });
 
@@ -114,7 +104,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W');
+        expect(result).to.equal('W');
         done();
     });
 
@@ -129,7 +119,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' W:HOWRU HELLO WORLD D SOMETHING');
+        expect(result).to.equal('W:HOWRU HELLO WORLD D SOMETHING');
         done();
     });
 

@@ -1,5 +1,5 @@
 {
-	"source": "../sample",
-	"output": "./output",
-	"throttle": "1"
+    "source": "../../../VistA-M/Packages",
+    "output": "./output",
+    "throttle": "0"
 }

@@ -57,7 +57,6 @@ function test(inputEntry) {
                                     diffErr = true;
                                 }
                             }
-
                             if (diffErr) {
                                 if (config.output) {
                                     output(inputEntry, tmpSRC, tmpTXT, tmpJSON, tmpDIFF, function (err) {
@@ -73,9 +72,7 @@ function test(inputEntry) {
                         }
                     });
                 }
-
             });
-
         });
     });
 }

@@ -10,15 +10,32 @@ describe('Render Labels >', function () {
     it('Absent Test', function (done) {
         var result = render.appendLabel(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' ');
+        expect(result).to.equal('');
         done();
     });
 
     it('Empty Test', function (done) {
         testObject.lineLabel = "";
+        testObject.lineLeadSpace = " ";
         var result = render.appendLabel(testObject, "");
         expect(result).to.exist;
         expect(result).to.equal(' ');
+        done();
+    });
+
+    it('Leading Space Test', function (done) {
+        testObject.lineLeadSpace = "    ";
+        var result = render.appendLabel(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal('    ');
+        done();
+    });
+
+    it('Leading Tab Test', function (done) {
+        testObject.lineLeadSpace = "\t\t";
+        var result = render.appendLabel(testObject, "");
+        expect(result).to.exist;
+        expect(result).to.equal('\t\t');
         done();
     });
 

@@ -36,7 +36,11 @@ function test(inputEntry) {
         var tmpJSON;
         var tmpTXT;
 
-        it('Load Record', function (done) {
+
+
+        it('Compare Record', function (done) {
+
+
             fs.readFile(inputEntry, {
                 encoding: 'utf8'
             }, function (err, data) {
@@ -44,22 +48,10 @@ function test(inputEntry) {
                     done(err);
                 } else {
                     tmpSRC = data;
-                    done();
-                }
-            });
-        });
+                    tmpJSON = eMcellent.parse(tmpSRC);
+                    tmpTXT = eMcellent.render(tmpJSON);
 
-        it('Parse Record', function (done) {
-            tmpJSON = eMcellent.parse(tmpSRC);
-            done();
-        });
 
-        it('Render Record', function (done) {
-            tmpTXT = eMcellent.render(tmpJSON);
-            done();
-        });
-
-        it('Compare Record', function (done) {
             jsdiff.diffLines(tmpSRC, tmpTXT, function (err, tmpDIFF) {
                 if (err) {
                     done(err);
@@ -88,6 +80,12 @@ function test(inputEntry) {
                     }
                 }
             });
+    }
+
+        });
+
+
+
         });
     });
 }

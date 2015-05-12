@@ -1,40 +1,40 @@
 {
-  "name": "emcellent-parse",
-  "version": "0.0.2",
-  "description": "A most excellent M/MUMPS parsing library.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mmccall/eMcellent-parse.git"
-  },
-  "keywords": [
-    "M",
-    "MUMPS",
-    "VistA",
-    "GT.M",
-    "Cache"
-  ],
-  "author": "Matthew McCall",
-  "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/mmccall/eMcellent-parse/issues"
-  },
-  "homepage": "https://github.com/mmccall/eMcellent-parse",
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "~2.0.1",
-    "chai": "~1.10.0",
-    "recursive-readdir": "~1.2.1",
-    "rimraf": "2.3.2",
-    "diff": "~1.3.2",
-    "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-jsbeautifier": "~0.2.8",
-    "grunt-mocha-test": "~0.12.7",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-browserify": "~3.3.0",
-    "istanbul": "~0.3.5",
-    "coveralls": "~2.11.2"
-  }
+    "name": "emcellent-parse",
+    "version": "0.0.2",
+    "description": "A most excellent M/MUMPS parsing library.",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mmccall/eMcellent-parse.git"
+    },
+    "keywords": [
+        "M",
+        "MUMPS",
+        "VistA",
+        "GT.M",
+        "Cache"
+    ],
+    "author": "Matthew McCall",
+    "license": "Apache 2.0",
+    "bugs": {
+        "url": "https://github.com/mmccall/eMcellent-parse/issues"
+    },
+    "homepage": "https://github.com/mmccall/eMcellent-parse",
+    "dependencies": {},
+    "devDependencies": {
+        "mocha": "~2.0.1",
+        "chai": "~1.10.0",
+        "recursive-readdir": "~1.2.1",
+        "rimraf": "2.3.2",
+        "diff": "~1.3.2",
+        "grunt": "~0.4.5",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-jsbeautifier": "~0.2.8",
+        "grunt-mocha-test": "~0.12.7",
+        "grunt-contrib-uglify": "~0.4.0",
+        "grunt-browserify": "~3.3.0",
+        "istanbul": "~0.3.5",
+        "coveralls": "~2.11.2"
+    }
 }

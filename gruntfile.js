@@ -40,18 +40,9 @@ module.exports = function (grunt) {
             }
         },
         jsbeautifier: {
-            beautify: {
-                src: ['./lib/*.js', 'index.js', 'gruntFile.js', './test/**/*.js'],
-                options: {
-                    config: '.jsbeautifyrc'
-                }
-            },
-            check: {
-                src: ['./lib/*.js', 'index.js', 'gruntFile.js', './test/**/*.js'],
-                options: {
-                    mode: 'VERIFY_ONLY',
-                    config: '.jsbeautifyrc'
-                }
+            files: ['./lib/*.js', 'index.js', 'gruntFile.js', 'package.json', './test/**/*.js'],
+            options: {
+                config: '.jsbeautifyrc'
             }
         },
         browserify: {

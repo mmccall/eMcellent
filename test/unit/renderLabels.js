@@ -10,7 +10,7 @@ describe('Render Labels >', function () {
     it('Absent Test', function (done) {
         var result = render.appendLabel(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal('');
+        expect(result).to.equal(' ');
         done();
     });
 
@@ -18,7 +18,7 @@ describe('Render Labels >', function () {
         testObject.lineLabel = "";
         var result = render.appendLabel(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal('');
+        expect(result).to.equal(' ');
         done();
     });
 
@@ -26,7 +26,7 @@ describe('Render Labels >', function () {
         testObject.lineLabel = "HELLO WORLD";
         var result = render.appendLabel(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal('HELLO WORLD');
+        expect(result).to.equal('HELLO WORLD ');
         done();
     });
 
@@ -34,7 +34,7 @@ describe('Render Labels >', function () {
         testObject.lineLabel = "HELLO WORLD";
         var result = render.appendLabel(testObject, "HELLO WORLD ");
         expect(result).to.exist;
-        expect(result).to.equal('HELLO WORLD HELLO WORLD');
+        expect(result).to.equal('HELLO WORLD HELLO WORLD ');
         done();
     });
 

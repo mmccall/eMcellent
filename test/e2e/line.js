@@ -121,4 +121,13 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('PRCABIL - Indentation Spacing Issue', function (done) {
+        var input = '    .S X=PRCACAT,PRCAFUND=$S(X=40:"05",X=41:"06",X=42:"07",X=43:"08",1:"10"),PRCAFUND=5287_PRCAFUND';
+        var result = eMcellent.parse(input)[0];
+        //console.log(result);
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

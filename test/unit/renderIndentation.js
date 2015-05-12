@@ -26,7 +26,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = [""];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .');
+        expect(result).to.equal('.');
         done();
     });
 
@@ -34,7 +34,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["", ""];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' ..');
+        expect(result).to.equal('..');
         done();
     });
 
@@ -42,7 +42,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = [' '];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' . ');
+        expect(result).to.equal('. ');
         done();
     });
 
@@ -50,7 +50,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = [" ", " "];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' . . ');
+        expect(result).to.equal('. . ');
         done();
     });
 
@@ -58,7 +58,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = [""];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .');
+        expect(result).to.equal('.');
         done();
     });
 
@@ -66,7 +66,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["", ""];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' ..');
+        expect(result).to.equal('..');
         done();
     });
 
@@ -74,7 +74,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["   "];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .   ');
+        expect(result).to.equal('.   ');
         done();
     });
 
@@ -82,7 +82,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["   ", " "];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .   . ');
+        expect(result).to.equal('.   . ');
         done();
     });
 
@@ -90,7 +90,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["\t\t", "\t"];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .\t\t.\t');
+        expect(result).to.equal('.\t\t.\t');
         done();
     });
 
@@ -98,7 +98,7 @@ describe('Render Indentation >', function () {
         testObject.lineIndentationArray = ["\t\t", " "];
         var result = render.appendIndentation(testObject, "");
         expect(result).to.exist;
-        expect(result).to.equal(' .\t\t. ');
+        expect(result).to.equal('.\t\t. ');
         done();
     });
 

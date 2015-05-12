@@ -145,7 +145,7 @@ describe('Render Routines >', function () {
         }];
         var result = render.appendRoutines(testObject, "  ");
         expect(result).to.exist;
-        expect(result).to.equal('   W:HOWRU HELLO WORLD D SOMETHING');
+        expect(result).to.equal('  W:HOWRU HELLO WORLD D SOMETHING');
         done();
     });
 

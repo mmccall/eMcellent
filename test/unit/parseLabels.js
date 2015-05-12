@@ -117,7 +117,7 @@ describe('Parse Labels >', function () {
         done();
     });
 
-    it('Post-Label Spacing No Conent', function (done) {
+    it('Post-Label Spacing No Content', function (done) {
         var testLine = 'WELL    ';
         var result = parser.extractLabel(testLine, {});
         expect(result.lineLeadSpace).to.exist;
@@ -126,6 +126,29 @@ describe('Parse Labels >', function () {
         expect(result.lineLabel).to.equal('WELL');
         expect(result.lineExpression).to.exist;
         expect(result.lineExpression).to.equal('');
+        done();
+    });
+
+    it('Empty Label Spacing No Content', function (done) {
+        var testLine = '    ';
+        var result = parser.extractLabel(testLine, {});
+        expect(result.lineLeadSpace).to.exist;
+        expect(result.lineLeadSpace).to.equal("    ");
+        expect(result.lineLabel).to.not.exist;
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal("");
+        done();
+    });
+
+    it('Empty Label Spacing No Content', function (done) {
+        var testLine = 'WELL    ';
+        var result = parser.extractLabel(testLine, {});
+        expect(result.lineLeadSpace).to.exist;
+        expect(result.lineLeadSpace).to.equal("    ");
+        expect(result.lineLabel).to.exist;
+        expect(result.lineLabel).to.equal("WELL");
+        expect(result.lineExpression).to.exist;
+        expect(result.lineExpression).to.equal("");
         done();
     });
 

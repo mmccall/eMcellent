@@ -146,4 +146,12 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('DVBAVRX2 - Post Label Trailing Space Issue', function (done) {
+        var input = 'WWDA(DVBATD,DVBAXAGE)   ';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

@@ -138,4 +138,12 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('BPSOSO1 - Quoted Semicolon Parsing Issue', function (done) {
+        var input = ' . I SEL W ! H 1 D @$P($T(LIST+SEL),";",4) ;';
+        var result = eMcellent.parse(input)[0];
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

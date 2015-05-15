@@ -1,11 +1,11 @@
 {
-    "name": "emcellent-parse",
-    "version": "0.0.2",
+    "name": "eMcellent",
+    "version": "0.0.3",
     "description": "A most excellent M/MUMPS parsing library.",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mmccall/eMcellent-parse.git"
+        "url": "https://github.com/mmccall/eMcellent.git"
     },
     "keywords": [
         "M",
@@ -17,9 +17,9 @@
     "author": "Matthew McCall",
     "license": "Apache 2.0",
     "bugs": {
-        "url": "https://github.com/mmccall/eMcellent-parse/issues"
+        "url": "https://github.com/mmccall/eMcellent/issues"
     },
-    "homepage": "https://github.com/mmccall/eMcellent-parse",
+    "homepage": "https://github.com/mmccall/eMcellent",
     "dependencies": {},
     "devDependencies": {
         "mocha": "~2.0.1",

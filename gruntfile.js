@@ -64,11 +64,11 @@ module.exports = function (grunt) {
         browserify: {
             dist: {
                 files: {
-                    'dist/emcellent-parse.min.js': ['index.js']
+                    'dist/emcellent.min.js': ['index.js']
                 },
                 options: {
                     browserifyOptions: {
-                        standalone: 'mParse'
+                        standalone: 'emcellent'
                     }
                 },
             }
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
             },
             my_target: {
                 files: {
-                    'dist/emcellent-parse.min.js': ['dist/emcellent-parse.min.js']
+                    'dist/emcellent.min.js': ['dist/emcellent.min.js']
                 }
             }
         },

@@ -1,9 +1,9 @@
-eMcellent-parse
+eMcellent
 =========
 
-[![Build Status](https://travis-ci.org/mmccall/eMcellent-parse.svg?branch=master)](https://travis-ci.org/mmccall/eMcellent-parse) [![Coverage Status](https://coveralls.io/repos/mmccall/eMcellent-parse/badge.svg)](https://coveralls.io/r/mmccall/eMcellent-parse)
+[![Build Status](https://travis-ci.org/mmccall/eMcellent.svg?branch=master)](https://travis-ci.org/mmccall/eMcellent) [![Coverage Status](https://coveralls.io/repos/mmccall/eMcellent/badge.svg)](https://coveralls.io/r/mmccall/eMcellent)
 
-A most excellent M/MUMPS parsing library; eMcellent-parse takes input M/MUMPS code and transforms it into JSON-based representations of the code.  This can be used in translation and/or markup to make the source code more readily interpretable.
+A most excellent M/MUMPS parsing library; eMcellent takes input M/MUMPS code and transforms it into JSON-based representations of the code.  This can be used in translation and/or markup to make the source code more readily interpretable.
 
 ### Getting Started
 
@@ -11,11 +11,11 @@ The code is built to be run in either Node.js or the browser; it uses native Jav
 
 To use in Node.js, the package is available via `npm`.  To use locally, you will only need to install dependencies using `npm install`.  To test, the default `grunt` task will execute all test cases.
 
-To use in the browser, install dependencies with `npm install`, and run `grunt build:browser`.  Browserify will convert the package into a Commonjs format, minify it, and output it to `/dist/emcellent-parse.min.js`.
+To use in the browser, install dependencies with `npm install`, and run `grunt build:browser`.  Browserify will convert the package into a Commonjs format, minify it, and output it to `/dist/emcellent.min.js`.
 
 ### Functions
 
-The library has two entry functions; note that both functions are synchronous.  In the browser, these can be accessed as elements of the mParse object (ex. `mParse.parse();` ).
+The library has two entry functions; note that both functions are synchronous.  In the browser, these can be accessed as elements of the emcellent object (ex. `emcellent.parse();` ).
 
 #### parse()
 

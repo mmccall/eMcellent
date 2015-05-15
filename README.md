@@ -1,7 +1,7 @@
 eMcellent
 =========
 
-[![Build Status](https://travis-ci.org/mmccall/eMcellent-parse.svg?branch=master)](https://travis-ci.org/mmccall/eMcellent-parse) [![Coverage Status](https://coveralls.io/repos/mmccall/eMcellent-parse/badge.svg)](https://coveralls.io/r/mmccall/eMcellent-parse)
+[![Build Status](https://travis-ci.org/mmccall/eMcellent.svg?branch=master)](https://travis-ci.org/mmccall/eMcellent) [![Coverage Status](https://coveralls.io/repos/mmccall/eMcellent/badge.svg)](https://coveralls.io/r/mmccall/eMcellent)
 
 A most excellent M/MUMPS parsing library; eMcellent takes input M/MUMPS code and transforms it into JSON-based representations of the code.  This can be used in translation and/or markup to make the source code more readily interpretable.
 

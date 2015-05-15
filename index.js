@@ -35,7 +35,6 @@ function renderLine(inputObject) {
 function parse(inputString) {
 
     //Strip out carriage returns.
-    //TODO:  Investigate escape quote checking, if CR/LF can be contained in text block.
     inputString = inputString.replace("\r", "");
     var inputArray = inputString.split('\n');
     var returnArray = [];

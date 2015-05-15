@@ -1,5 +1,5 @@
 {
-    "name": "eMcellent",
+    "name": "emcellent",
     "version": "0.0.3",
     "description": "A most excellent M/MUMPS parsing library.",
     "main": "index.js",

@@ -181,4 +181,14 @@ describe('Patch Tests', function () {
         done();
     });
 
+    it('OOPSCC - Extended Multiple Space between routines test', function (done) {
+        var input = ' I CAT=1 D                           ; Employee in ^PRSPC (PAID)';
+        var result = eMcellent.parse(input)[0];
+        expect(result.lineRoutines[1].mRoutine).to.equal('D');
+        expect(result.lineRoutines[1].mArguments).to.equal('                          ');
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
 });

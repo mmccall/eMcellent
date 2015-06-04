@@ -165,12 +165,10 @@ describe('Extract Routines and Arguments >', function () {
         var testLine = 'HELLO  ';
         var result = parser.extractRoutines(testLine, {});
         expect(result.lineRoutines).to.exist;
-        expect(result.lineRoutines.length).to.equal(2);
+        expect(result.lineRoutines.length).to.equal(1);
         expect(result.lineRoutines[0].mRoutine).to.equal('HELLO');
         expect(result.lineRoutines[0].mArguments).to.exist;
-        expect(result.lineRoutines[0].mArguments).to.equal('');
-        expect(result.lineRoutines[1].mRoutine).to.exist;
-        expect(result.lineRoutines[1].mRoutine).to.equal('');
+        expect(result.lineRoutines[0].mArguments).to.equal(' ');
         done();
     });
 

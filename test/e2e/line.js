@@ -104,7 +104,7 @@ describe('Parse 10 Lines of XINDEX.m >', function () {
     it('Test Line Nine', function (done) {
         var result = results[9];
         expect(result.lineRoutines[0].mRoutine).to.equal('D');
-        expect(result.lineRoutines[0].mArguments).to.equal('SETUP^XINDX7');
+        expect(result.lineRoutines[0].mArguments).to.equal('SETUP^XINDX7 ');
         expect(result.lineComment).to.equal('Get ready to process');
         done();
     });
@@ -166,6 +166,16 @@ describe('Patch Tests', function () {
         var input = ' ; list report-to-exam pointer problems, from ^XTMP("RA-RA27PST) :';
         var result = eMcellent.parse(input)[0];
         //console.log(result);
+        var renderResult = eMcellent.render(result);
+        expect(renderResult).to.equal(input);
+        done();
+    });
+
+    it('GMRACMR1 - Multiple Space between routines test', function (done) {
+        var input = ' .I %=1 K % S X=0  F  S X=$O(^SC(X)) Q:X<1  D';
+        var result = eMcellent.parse(input)[0];
+        expect(result.lineRoutines[3].mRoutine).to.equal('F');
+        expect(result.lineRoutines[3].mArguments).to.equal('');
         var renderResult = eMcellent.render(result);
         expect(renderResult).to.equal(input);
         done();
